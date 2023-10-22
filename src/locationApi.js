@@ -1,0 +1,1 @@
+geoUrl = "http://api.openweathermap.org/geo/1.0/zip?"
