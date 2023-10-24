@@ -1,4 +1,5 @@
 import { useState } from "react";
+import CurrentDay from "./CurrentDay";
 
 function ZipForm({onSubmit}){
     const [zipcode, setZipcode] = useState(21212);
@@ -26,7 +27,9 @@ function ZipForm({onSubmit}){
                     <button type="submit" className="btn btn-success" > Get the forcast!</button>
                 </div>
               </form>
+              <CurrentDay weatherData={ weatherData} locationObj={locationObj} />
           </div>
+          
     )
 }
 

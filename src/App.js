@@ -18,12 +18,12 @@ async function App() {
   // setLocationObj(defaultLocResp);
   // setWeatherData(defaultWxResp);
 
-  const handleSubmit = async (zipCode) => {
+  const handleSubmit = (zipCode = 21212) => {
     try{
       console.log("Zip code passed into app() was: ", zipCode);
       //weatherObj = getWxFromZip(zipCode);
-      const locationResponse = await getLocation(zipCode);
-      const weatherResponse = await getWeather(locationResponse.data);
+      const locationResponse = getLocation(zipCode);
+      const weatherResponse = getWxFromZip(zipCode);
 
       setLocationObj(locationResponse);
       setWeatherData(weatherResponse);
@@ -47,8 +47,8 @@ async function App() {
   
   return (
     <div>
-      <ZipForm onSubmit={handleSubmit}/>
-      <CurrentDay weatherData={ weatherData} locationObj={locationObj} />
+      <ZipForm onSubmit={handleSubmit} weatherData={weatherData} locationObj={locationObj}/>
+      {/* <CurrentDay weatherData={ weatherData} locationObj={locationObj} /> */}
     </div>
   )
 }
