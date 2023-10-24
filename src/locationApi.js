@@ -1,8 +1,6 @@
 
 import axios from 'axios';
 
-const test = process.env.REACT_APP_TEST_VAR;
-const test2 = process.env.REACT_APP_TEST_VAR2;
 const OWM_KEY = process.env.REACT_APP_OWM_KEY;
 //import axiosKey from './apiKeys';
 
@@ -23,7 +21,11 @@ const getLocation = async (zipCode = 21212) => {
             }
         }
     );
-    console.log(response);
+    const locationObj = {
+        lat: response.data.lat,
+        lon: response.data.lon
+    }
+    console.log("The loc object is: ", locationObj);
     return response;
 } 
 
