@@ -21,8 +21,13 @@ const getWeather = async (location) => {
             }
         }
     );
-    console.log(response);
-    return response;
+    const locationObj = {
+        lat: location.lat,
+        lon: location.lon,
+        cityName: location.name
+    }
+    console.log(locationObj);
+    return locationObj;
 } 
 
 export default getWeather;
