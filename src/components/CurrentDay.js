@@ -30,15 +30,15 @@ function CurrentDay({weatherData, locationObj}){
       </div>
       <div className="details flex-parent">
         <div className="temperature-breakdown">
-          <p>Morning Temperature: {day.morningTemp}&deg;F</p>
-          <p>Day Temperature: {day.dayTemp}&deg;F</p>
-          <p>Evening Temperature: {day.eveningTemp}&deg;F</p>
+          <p>Morning Temperature: {day.temp.morn}&deg;F</p>
+          <p>Day Temperature: {day.temp.day}&deg;F</p>
+          <p>Evening Temperature: {day.temp.eve}&deg;F</p>
           <p>Night Temperature: {day.nightTemp}&deg;F</p>
         </div>
         <div className="misc-details">
           <p>Atmospheric Pressure: {day.pressure} hPa</p>
           <p>Humidity: {day.humidity}%</p>
-          <p>Wind Speed: {day.wind} mph</p>
+          <p>Wind Speed: {day.wind_speed} mph</p>
         </div>
       </div>
     </div>

@@ -16,7 +16,8 @@ const getWeather = async (location) => {
             params:{
                 lat: location.lat,
                 lon: location.lon,
-                exclude: EXCLUDE, 
+                exclude: EXCLUDE,
+                units: imperial, 
                 appid: OWM_KEY
             }
         }

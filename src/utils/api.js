@@ -35,6 +35,7 @@ export const getWeather = async (location) => {
                 lat: location.lat,
                 lon: location.lon,
                 exclude: EXCLUDE, 
+                units: "imperial",
                 appid: OWM_KEY
             }
         }
