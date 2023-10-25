@@ -9,25 +9,35 @@ import CurrentDay from "./components/CurrentDay";
 const defaultZip = 21212;
 
 
-async function App() {
-  //const [weatherObj, setWeatherObj] = useState({});
+function App(){   //const [weatherObj, setWeatherObj] = useState({});
   const [weatherData, setWeatherData] = useState(null);
   const [locationObj, setLocationObj] = useState(null);
-  const defaultLocResp = await getLocation(defaultZip);
-  const defaultWxResp = await getWeather(defaultLocResp);
-  // setLocationObj(defaultLocResp);
-  // setWeatherData(defaultWxResp);
+  const [zipFormSubmitted, setZipFormSubmitted] = useState(false);
 
-  const handleSubmit = (zipCode = 21212) => {
+  const handleSubmit = async (zipCode = 21212) => {
     try{
-      console.log("Zip code passed into app() was: ", zipCode);
-      //weatherObj = getWxFromZip(zipCode);
-      const locationResponse = getLocation(zipCode);
-      const weatherResponse = getWxFromZip(zipCode);
-
-      setLocationObj(locationResponse);
-      setWeatherData(weatherResponse);
-      console.log("Wx data from app: ", weatherResponse);
+        getLocation(zipCode)
+          .then(
+            (location) => {
+              console.log("From App.HandleSubmit.location: ", location);
+              setLocationObj(location);
+              return getWeather(location);
+            }
+          )
+          .then(
+            (weatherDataResponse) => {
+              console.log("Weather data was:: ", weatherDataResponse);
+              setWeatherData(weatherDataResponse);
+              return weatherDataResponse;
+            }
+          )
+          .then(
+            (wxDa) => {
+              if(wxDa != null){
+                setZipFormSubmitted(true)
+              }
+            }
+          )
     } 
     catch(error){
       if(error.response){
@@ -48,9 +58,9 @@ async function App() {
   return (
     <div>
       <ZipForm onSubmit={handleSubmit} weatherData={weatherData} locationObj={locationObj}/>
-      {/* <CurrentDay weatherData={ weatherData} locationObj={locationObj} /> */}
+      {zipFormSubmitted && <CurrentDay weatherData={ weatherData} locationObj={locationObj} /> }
     </div>
-  )
+  );
 }
 
 export default App;

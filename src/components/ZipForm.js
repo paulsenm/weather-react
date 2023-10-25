@@ -27,7 +27,6 @@ function ZipForm({onSubmit, weatherData, locationObj}){
                     <button type="submit" className="btn btn-success" > Get the forcast!</button>
                 </div>
               </form>
-              <CurrentDay weatherData={ weatherData} locationObj={locationObj} />
           </div>
           
     )

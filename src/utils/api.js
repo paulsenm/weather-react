@@ -5,9 +5,6 @@ const geoUrl = "http://api.openweathermap.org/geo/1.0/zip?"
 const EXCLUDE = "minutely,alerts"; //This data isn't currently used in the app
 const geoUrlOneCall = "https://api.openweathermap.org/data/3.0/onecall?";
 
-//import getLocation from '../locationApi';
-//import getWeather from '../weatherApi';
-
 export const getLocation = async (zipCode = 21212) => {
     const zip = zipCode + ",US";
     const response = await axios.get(geoUrl,
@@ -22,10 +19,11 @@ export const getLocation = async (zipCode = 21212) => {
     );
     const locationObj = {
         lat: response.data.lat,
-        lon: response.data.lon
+        lon: response.data.lon,
+        city: response.name
     }
     console.log("The loc object is: ", locationObj);
-    return response;
+    return locationObj;
 } 
 
 export const getWeather = async (location) => {
@@ -41,13 +39,8 @@ export const getWeather = async (location) => {
             }
         }
     );
-    const locationObj = {
-        lat: location.lat,
-        lon: location.lon,
-        cityName: location.name
-    }
-    console.log(locationObj);
-    return locationObj;
+    console.log("Wx obj from getWx: ",response );
+    return response.data;
 } 
 
 
