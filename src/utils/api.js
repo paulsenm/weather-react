@@ -20,9 +20,10 @@ export const getLocation = async (zipCode = 21212) => {
     const locationObj = {
         lat: response.data.lat,
         lon: response.data.lon,
-        city: response.name
+        city: response.data.name
     }
     console.log("The loc object is: ", locationObj);
+    console.log("the location response was: ", response);
     return locationObj;
 } 
 
