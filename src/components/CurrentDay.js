@@ -33,7 +33,7 @@ function CurrentDay({weatherData, locationObj}){
           <p>Morning Temperature: {day.temp.morn}&deg;F</p>
           <p>Day Temperature: {day.temp.day}&deg;F</p>
           <p>Evening Temperature: {day.temp.eve}&deg;F</p>
-          <p>Night Temperature: {day.nightTemp}&deg;F</p>
+          <p>Night Temperature: {day.temp.night}&deg;F</p>
         </div>
         <div className="misc-details">
           <p>Atmospheric Pressure: {day.pressure} hPa</p>
