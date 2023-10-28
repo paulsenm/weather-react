@@ -58,13 +58,15 @@ function App(){   //const [weatherObj, setWeatherObj] = useState({});
     }
 
   const handleDayClick = (index) => {
+    //let index = event.target.getAttribute("data-index");
+    console.log("Index from handleClick was: ", index);
     setSelectedDay(index);
   }
   
   return (
     <div id="app-container">
       <ZipForm onSubmit={handleSubmit} weatherData={weatherData} locationObj={locationObj}/>
-      {zipFormSubmitted && <CurrentDay weatherData={ weatherData} locationObj={locationObj} /> }
+      {zipFormSubmitted && <CurrentDay weatherData={ weatherData} locationObj={locationObj} index={selectedDay} /> }
       {zipFormSubmitted && < WeatherList forecast={weatherData} onDayClick={handleDayClick} />}
     </div>
   );
