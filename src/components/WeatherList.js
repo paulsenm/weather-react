@@ -3,7 +3,7 @@ import WeatherListItem from "./WeatherListItem"
 function WeatherList({forecast, onDayClick}) {
     const wxDailyArray = forecast.daily;
     return (
-        <div>
+        <div id="weatherList" className="weather-list flex-parent">
             {
                 wxDailyArray.map((forecastDay, index ) => (
                     <WeatherListItem

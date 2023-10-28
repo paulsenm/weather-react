@@ -14,7 +14,6 @@ function WeatherListItem({onDayClick, forecastDay, timeZoneOffset}) {
 
     return (
         <div>
-            wx list item
             <div className="weather-list-item" data-index={index}>
                 <h2>{date.getMonth() + 1} / {date.getDate()}</h2>
                 <h3>{weekday}</h3>
