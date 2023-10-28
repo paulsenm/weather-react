@@ -65,7 +65,7 @@ function App(){   //const [weatherObj, setWeatherObj] = useState({});
     <div id="app-container">
       <ZipForm onSubmit={handleSubmit} weatherData={weatherData} locationObj={locationObj}/>
       {zipFormSubmitted && <CurrentDay weatherData={ weatherData} locationObj={locationObj} /> }
-      {zipFormSubmitted && < WeatherListItem forecastDay={weatherData.daily[0]} />}
+      {zipFormSubmitted && < WeatherListItem forecastDay={weatherData.daily[0]} timeZoneOffset={weatherData.timezone_offset} />}
     </div>
   );
 }
