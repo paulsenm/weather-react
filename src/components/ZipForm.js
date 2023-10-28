@@ -1,5 +1,4 @@
 import { useState } from "react";
-import CurrentDay from "./CurrentDay";
 
 function ZipForm({onSubmit, weatherData, locationObj}){
     const [zipcode, setZipcode] = useState(21212);

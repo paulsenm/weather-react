@@ -1,13 +1,13 @@
 import { useState } from "react";
 
 
-import {getWxFromZip, getLocation, getWeather} from "./utils/api";
+import { getLocation, getWeather} from "./utils/api";
 // getWxFromZip(21212);
 import ZipForm from "./components/ZipForm";
 import CurrentDay from "./components/CurrentDay";
 import WeatherList from "./components/WeatherList";
 
-const defaultZip = 21212;
+
 
 
 function App(){   //const [weatherObj, setWeatherObj] = useState({});
