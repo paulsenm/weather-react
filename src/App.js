@@ -5,7 +5,7 @@ import {getWxFromZip, getLocation, getWeather} from "./utils/api";
 // getWxFromZip(21212);
 import ZipForm from "./components/ZipForm";
 import CurrentDay from "./components/CurrentDay";
-import WeatherListItem from './components/WeatherListItem';
+import WeatherList from "./components/WeatherList";
 
 const defaultZip = 21212;
 
@@ -65,7 +65,7 @@ function App(){   //const [weatherObj, setWeatherObj] = useState({});
     <div id="app-container">
       <ZipForm onSubmit={handleSubmit} weatherData={weatherData} locationObj={locationObj}/>
       {zipFormSubmitted && <CurrentDay weatherData={ weatherData} locationObj={locationObj} /> }
-      {zipFormSubmitted && < WeatherListItem forecastDay={weatherData.daily[0]} timeZoneOffset={weatherData.timezone_offset} />}
+      {zipFormSubmitted && < WeatherList forecast={weatherData} onDayClick={handleDayClick} />}
     </div>
   );
 }

@@ -1,6 +1,8 @@
 import { getWeekday, getDate } from "../utils/dates";
 
 function WeatherListItem({onDayClick, forecastDay, timeZoneOffset}) {
+    console.log("The timezoneoffset was: ", timeZoneOffset);
+    console.log("The forecastDay was: ", forecastDay);
     const date = getDate(forecastDay.dt, timeZoneOffset);
     console.log("Date is: ", date);
     const weekday = getWeekday(date);
